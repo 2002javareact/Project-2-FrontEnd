@@ -21,19 +21,10 @@ const BottomNavBarComponent = (props: any) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
-  // Figure out how to make navbar open when hovered
-  // mouse over
-  // const [hover, setHover] = useState(false);
-
-  // const mouseOver = () => setHover(!hover);
-
-  // function handleOpen(){
-  //   this.setState({hover:true})
-  // }
 
   return (
     <div>
-      <Navbar className="navbar" light expand="md">
+      <Navbar className="navbar" id="bottomNavBar" light expand="md">
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
@@ -249,100 +240,6 @@ const BottomNavBarComponent = (props: any) => {
       </Navbar>
     </div>
   );
-
-  //JUST FOR REFERENCE
-  //   return (
-  //     <div>
-  //       <Navbar color="light" light expand="md">
-  //         <NavbarBrand>Expense Reimbursement System</NavbarBrand>
-  //         <NavbarToggler onClick={toggle} />
-  //         <Collapse isOpen={isOpen} navbar>
-  //           <Nav className="mr-auto" navbar>
-  //             <NavItem>
-  //               {/* <NavLink to="/profile">Profile</NavLink> */}
-  //               <Link className="link" to="/">
-  //                 Home
-  //               </Link>
-  //             </NavItem>
-  //             <DropdownItem divider />
-  //             <NavItem>
-  //               {/* <NavLink to="/profile">Profile</NavLink> */}
-  //               <Link className="link" to="/profile">
-  //                 Profile
-  //               </Link>
-  //             </NavItem>
-  //             <DropdownItem divider />
-  //             {props.role === "User" ? (
-  //               <div></div>
-  //             ) : (
-  //               <UncontrolledDropdown nav inNavbar>
-  //                 <DropdownToggle nav caret>
-  //                   Manage
-  //                 </DropdownToggle>
-  //                 <DropdownMenu right>
-  //                   <DropdownItem>
-  //                     <Link to="/manage/users">Find All Users</Link>
-  //                   </DropdownItem>
-  //                   <DropdownItem divider />
-  //                   <DropdownItem>
-  //                     <Link to="/manage/user">Find One User</Link>
-  //                   </DropdownItem>
-  //                   {props.role === "Admin" ? (
-  //                     <>
-  //                       <DropdownItem divider />
-  //                       <DropdownItem>
-  //                         <Link to="/manage/update-user">Update User</Link>
-  //                       </DropdownItem>
-  //                     </>
-  //                   ) : (
-  //                     <div></div>
-  //                   )}
-  //                   <DropdownItem divider />
-  //                   <DropdownItem>
-  //                     <Link to="/manage/reimbursements">Find Reimbursement</Link>
-  //                   </DropdownItem>
-  //                   <DropdownItem divider />
-  //                   <DropdownItem>
-  //                     <Link to="/manage/update-reimbursement">
-  //                       Update Reimbursement
-  //                     </Link>
-  //                   </DropdownItem>
-
-  //                   {/* <DropdownItem>Reset</DropdownItem> */}
-  //                 </DropdownMenu>
-  //               </UncontrolledDropdown>
-  //             )}
-  //             <DropdownItem divider />
-  //             <UncontrolledDropdown nav inNavbar>
-  //               <DropdownToggle nav caret>
-  //                 Reimbursements
-  //               </DropdownToggle>
-  //               <DropdownMenu right>
-  //                 <DropdownItem>
-  //                   <Link to="/reimbursements/all-user-reimbursements">
-  //                     My Reimbursements
-  //                   </Link>
-  //                 </DropdownItem>
-  //                 <DropdownItem divider />
-  //                 <DropdownItem>
-  //                   <Link to="/reimbursements/submit">Submit Reimbursement</Link>
-  //                 </DropdownItem>
-
-  //                 {/* <DropdownItem>Reset</DropdownItem> */}
-  //               </DropdownMenu>
-  //             </UncontrolledDropdown>
-  //             {/* <NavbarText>Simple Text</NavbarText> */}
-  //             <DropdownItem divider />
-  //             <Button className="logout-button" href="/">
-  //               Log Out
-  //             </Button>
-  //           </Nav>
-  //           {/* <NavbarText>Simple Text</NavbarText> */}
-  //         </Collapse>
-  //       </Navbar>
-  //     </div>
-  //   );
-  // };
 };
 
 export default BottomNavBarComponent;

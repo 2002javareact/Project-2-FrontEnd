@@ -1,8 +1,8 @@
 import React from "react";
 import { UncontrolledCarousel } from "reactstrap";
-import ShoppingBag from "../../assets/shopping-bag.jpeg";
-import UserImg from "../../assets/user.jpg";
-import Logo from "../../assets/logo.jpg";
+import Img1 from "../../assets/carousel1.jpg";
+import Img2 from "../../assets/carousel2.jpg";
+import Store from "../../assets/store.jpg";
 import { RouteComponentProps } from "react-router";
 
 interface IHomePageProps extends RouteComponentProps {}
@@ -10,40 +10,41 @@ interface IHomePageProps extends RouteComponentProps {}
 export class HomePageComponent extends React.Component<IHomePageProps, any> {
   render() {
     // Carousel Image items
-    // {
-    //   console.log("got to home1");
-    // }
-
     const items = [
       {
-        src: ShoppingBag,
+        src: Img1,
         altText: "Slide 1",
-        caption: "Slide 1",
-        header: "Slide 1 Header",
+        caption: "Browse our extensive wine collection today!",
+        header: "Feeling Boujee?",
         key: "1"
       },
       {
-        src: UserImg,
+        src: Img2,
         altText: "Slide 2",
-        caption: "Slide 2",
-        header: "Slide 2 Header",
+        caption: "Make the night right with one of our finest champagnes!",
+        header: "Special occasion?",
         key: "2"
       },
       {
-        src: Logo,
+        src: Store,
         altText: "Slide 3",
-        caption: "Slide 3",
-        header: "Slide 3 Header",
+        caption: "Come visit us at one of our locations across the U.S!",
+        header: "There's more in store!",
         key: "3"
       }
     ];
 
     return (
-      <>
+      <div>
         {/* Carousel Component */}
-        {console.log("got to home2")}
+        {/* Find a way to make the carousel clickable */}
         <UncontrolledCarousel items={items} />
-      </>
+        {/* Try to add the four sections at the bottom */}
+        <section></section>
+        <section></section>
+        <section></section>
+        <section></section>
+      </div>
     );
   }
 }

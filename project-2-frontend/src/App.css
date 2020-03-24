@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  /* put background color to change that white form background */
+  background-color: var(--charcoal);
 }
 /* Used to set css variables */
 :root {
@@ -64,6 +66,12 @@ html {
 #topNavBar {
   border-bottom: 1px solid var(--darker-white);
 }
+/* try to makr sticky navbar */
+/* #bottomNavBar {
+  position: fixed;
+  /* top: 0; */
+/* width: 100%;
+} */
 .navbar-img {
   height: 3rem;
   width: 3rem;
@@ -76,7 +84,32 @@ html {
 .dropdown:hover .dropdown-menu {
   display: block;
 }
-
+/* carousel image */
+.carousel-item > img {
+  width: 100vw;
+  height: 85vh;
+}
+#footer {
+  background-color: var(--charcoal);
+  color: var(--custom-grey);
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+}
+.display {
+  width: 100vw;
+  /* background-color: var(--darker-white); */
+  background-color: var(--custom-grey);
+  /* margin-left: 5vw; */
+  margin: auto;
+}
+form {
+  background-color: var(--darker-white);
+  margin: auto;
+  width: 95vw;
+}
+/* make classes for each page i want to have bColor to black */
 /* 
 Colors used for this project
 Regular White - #FFFFFF
