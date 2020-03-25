@@ -103,6 +103,7 @@ html {
   background-color: var(--custom-grey);
   /* margin-left: 5vw; */
   margin: auto;
+  padding-bottom: 2.5rem;;
 }
 form {
   background-color: var(--darker-white);

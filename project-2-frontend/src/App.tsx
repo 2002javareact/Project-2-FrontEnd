@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { HomePageComponent } from "./components/home-page-component/HomePageComponent";
 import { FooterComponent } from "./components/footer-component/FooterComponent";
 import { CheckoutComponent } from "./components/checkout-component/CheckoutComponent";
+import { UserProfileComponent } from "./components/user-profile-component/UserProfileComponent";
+import { EditProfileComponent } from "./components/edit-profile-component/EditProfileComponent";
 
 function App() {
   // const [currentUser, setCurrentUser] = useState(
@@ -19,6 +21,28 @@ function App() {
         <NavBarComponent />
 
         <Switch>
+          {/* edit User profile component */}
+          <Route 
+            path="/edit"
+            render={props => (
+              <EditProfileComponent 
+                history={props.history}
+                match={props.match}
+                location={props.location}
+              />
+            )}
+          />
+          {/* User profile component */}
+          <Route 
+            path="/profile"
+            render={props => (
+              <UserProfileComponent 
+                history={props.history}
+                match={props.match}
+                location={props.location}
+              />
+            )}
+          />
           {/* Checkout Component */}
           <Route
             path="/checkout"

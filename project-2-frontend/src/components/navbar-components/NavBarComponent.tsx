@@ -37,7 +37,7 @@ const NavBarComponent = (props: any) => {
           <Nav className="mr-auto" navbar>
             {/* PUT USER PROFILE ICON HERE */}
             <NavItem>
-              <Link to="/">
+              <Link to="/profile">
                 <img className="navbar-img" src={UserImg} alt="user profile" />
               </Link>
             </NavItem>
