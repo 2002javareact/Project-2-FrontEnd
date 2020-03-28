@@ -103,13 +103,18 @@ html {
   background-color: var(--custom-grey);
   /* margin-left: 5vw; */
   margin: auto;
-  padding-bottom: 2.5rem;;
+  padding-bottom: 2.5rem;
 }
 form {
   background-color: var(--darker-white);
   margin: auto;
   width: 95vw;
 }
+
+h2 {
+  color: white;
+}
+
 /* make classes for each page i want to have bColor to black */
 /* 
 Colors used for this project

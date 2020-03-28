@@ -1,7 +1,16 @@
 import React, { SyntheticEvent } from "react";
 import { Users } from "../../models/Users";
 import { Redirect } from "react-router";
-import { Col, Button, Form, FormGroup, Label, Input } from "reactstrap";
+import {
+  Col,
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Container,
+  Row
+} from "reactstrap";
 
 interface AccountComponentProps {
   createUser: Users;
@@ -119,128 +128,266 @@ export class AccountComponent extends React.Component<
   };
 
   render() {
-    return (
-      <div>
-        {/* SIGNUP FORM */}
+    return this.props.createUser.username ? (
+      <Redirect to="/" />
+    ) : (
+      <>
+        <h2>Sign Up</h2>
+        {/* SIGN UP FORM */}
+        <Form className="signUpForm" onSubmit={this.createUser}>
+          <Row form>
+            <Col md={{ size: 2, offset: 5 }}>
+              <FormGroup>
+                <Label for="username" sm={5}>
+                  Username
+                </Label>
+                <Input
+                  autoFocus
+                  onChange={this.updateUsername}
+                  value={this.state.username}
+                  type="text"
+                  name="username"
+                  id="username"
+                  required
+                />
+              </FormGroup>
+            </Col>
+          </Row>
 
-        <Form className="signup" onSubmit={this.createUser}>
-          <h2>Sign Up</h2>
-          <FormGroup row>
-            <Label for="Username" sm={3}>
-              Username
-            </Label>
-            <Col sm={5}>
-              <Input
-                onChange={this.updateUsername}
-                value={this.state.username}
-                type="text"
-                name="username"
-                id="username"
-                required
-              />
+          <Row form>
+            <Col md={{ size: 2, offset: 5 }}>
+              <FormGroup>
+                <Label for="password">Password</Label>
+                <Input
+                  autoFocus
+                  onChange={this.updatePassword}
+                  value={this.state.password}
+                  type="password"
+                  name="password"
+                  id="password"
+                  required
+                />
+              </FormGroup>
             </Col>
-          </FormGroup>
-          <FormGroup row>
-            <Label for="Password" sm={3}>
-              Password
-            </Label>
-            <Col sm={5}>
-              <Input
-                onChange={this.updatePassword}
-                value={this.state.password}
-                type="password"
-                name="password"
-                id="password"
-                required
-              />
+          </Row>
+
+          <Row form>
+            <Col md={{ size: 2, offset: 5 }}>
+              <FormGroup>
+                <Label for="firstName">First Name</Label>
+                <Input
+                  autoFocus
+                  onChange={this.updateFirstName}
+                  value={this.state.firstName}
+                  type="text"
+                  name="firstName"
+                  id="firstName"
+                  required
+                />
+              </FormGroup>
             </Col>
-          </FormGroup>
-          <FormGroup row>
-            <Label for="firstName" sm={3}>
-              First Name
-            </Label>
-            <Col sm={5}>
-              <Input
-                onChange={this.updateFirstName}
-                value={this.state.firstName}
-                type="text"
-                name="firstName"
-                id="firstName"
-                required
-              />
+          </Row>
+          <Row form>
+            <Col md={{ size: 2, offset: 5 }}>
+              <FormGroup>
+                <Label for="lastName">Last Name</Label>
+                <Input
+                  autoFocus
+                  onChange={this.updateLastName}
+                  value={this.state.lastName}
+                  type="text"
+                  name="lastName"
+                  id="lastName"
+                  required
+                />
+              </FormGroup>
             </Col>
-          </FormGroup>
-          <FormGroup row>
-            <Label for="lastName" sm={3}>
-              Last Name
-            </Label>
-            <Col sm={5}>
-              <Input
-                onChange={this.updateLastName}
-                value={this.state.lastName}
-                type="text"
-                name="lastName"
-                id="lastName"
-                required
-              />
+          </Row>
+          <Row form>
+            <Col md={{ size: 2, offset: 5 }}>
+              <FormGroup>
+                <Label for="email">Email Address</Label>
+                <Input
+                  autoFocus
+                  onChange={this.updateEmail}
+                  value={this.state.email}
+                  type="text"
+                  name="email"
+                  id="email"
+                  required
+                />
+              </FormGroup>
             </Col>
-          </FormGroup>
-          <FormGroup row>
-            <Label for="Email" sm={3}>
-              Email Address
-            </Label>
-            <Col sm={5}>
-              <Input
-                onChange={this.updateEmail}
-                value={this.state.email}
-                type="text"
-                name="email"
-                id="email"
-                required
-              />
-            </Col>
-          </FormGroup>
-          <Button color="info">Submit</Button>
+          </Row>
+          <Button className="signUpButton" color="primary">
+            Submit
+          </Button>
         </Form>
-
         <p>{this.props.createErrorMessage}</p>
 
-        {/* LOGIN FORM */}
+        <br></br>
 
-        <Form className="login" onSubmit={this.loginUser}>
-          <h2>Login</h2>
-          <FormGroup row>
-            <Label for="Username" sm={3}>
-              Username
-            </Label>
-            <Col sm={5}>
-              <Input
-                onChange={this.updateUsernameLogin}
-                value={this.state.usernameLogin}
-                type="text"
-                placeholder="Enter your username"
-                required
-              />
+        {/* <h2>Login</h2>
+        <Form className="signUpForm" onSubmit={this.createUser}>
+          <Row form>
+            <Col md={3}>
+              <FormGroup>
+                <Label for="exampleEmail">Email</Label>
+                <Input
+                  type="email"
+                  name="email"
+                  id="exampleEmail"
+                  placeholder="with a placeholder"
+                />
+              </FormGroup>
             </Col>
-          </FormGroup>
-          <FormGroup row>
-            <Label for="Password" sm={3}>
-              Password
-            </Label>
-            <Col sm={5}>
-              <Input
-                onChange={this.updateUsernamePassword}
-                value={this.state.usernamePassword}
-                type="text"
-                placeholder="Enter your passoword"
-                required
-              />
+            <Col md={3}>
+              <FormGroup>
+                <Label for="examplePassword">Password</Label>
+                <Input
+                  type="password"
+                  name="password"
+                  id="examplePassword"
+                  placeholder="password placeholder"
+                />
+              </FormGroup>
             </Col>
-          </FormGroup>
-          <Button color="info">Login</Button>
-        </Form>
-        {/* <p>{this.props.loggedErrorMessage}</p> */}
-      </div>
+          </Row>
+          <Button>Login In</Button>
+        </Form> */}
+      </>
     );
   }
 }
+
+//   <Redirect to="/" />
+// ) : (
+//   <>
+//     <Container>
+//       <br></br>
+//       <Row xs="2">
+//         {/* SIGNUP FORM */}
+//         <Form className="signupForm" onSubmit={this.createUser}>
+//           <h2>Sign Up</h2>
+//           <FormGroup row>
+//             <Label for="Username" sm={3}>
+//               Username
+//             </Label>
+//             <Col sm={5}>
+//               <Input
+//                 onChange={this.updateUsername}
+//                 value={this.state.username}
+//                 type="text"
+//                 name="username"
+//                 id="username"
+//                 required
+//               />
+//             </Col>
+//           </FormGroup>
+//           <FormGroup row>
+//             <Label for="Password" sm={3}>
+//               Password
+//             </Label>
+//             <Col sm={5}>
+//               <Input
+//                 onChange={this.updatePassword}
+//                 value={this.state.password}
+//                 type="password"
+//                 name="password"
+//                 id="password"
+//                 required
+//               />
+//             </Col>
+//           </FormGroup>
+//           <FormGroup row>
+//             <Label for="firstName" sm={3}>
+//               First Name
+//             </Label>
+//             <Col sm={5}>
+//               <Input
+//                 onChange={this.updateFirstName}
+//                 value={this.state.firstName}
+//                 type="text"
+//                 name="firstName"
+//                 id="firstName"
+//                 required
+//               />
+//             </Col>
+//           </FormGroup>
+//           <FormGroup row>
+//             <Label for="lastName" sm={3}>
+//               Last Name
+//             </Label>
+//             <Col sm={5}>
+//               <Input
+//                 onChange={this.updateLastName}
+//                 value={this.state.lastName}
+//                 type="text"
+//                 name="lastName"
+//                 id="lastName"
+//                 required
+//               />
+//             </Col>
+//           </FormGroup>
+//           <FormGroup row>
+//             <Label for="Email" sm={3}>
+//               Email Address
+//             </Label>
+//             <Col sm={5}>
+//               <Input
+//                 onChange={this.updateEmail}
+//                 value={this.state.email}
+//                 type="text"
+//                 name="email"
+//                 id="email"
+//                 required
+//               />
+//             </Col>
+//           </FormGroup>
+//           <Button className="signUpButton" color="secondary">
+//             Submit
+//           </Button>
+//         </Form>
+
+//         <p>{this.props.createErrorMessage}</p>
+
+//         {/* LOGIN FORM */}
+
+//         <Form className="loginForm" onSubmit={this.loginUser}>
+//           <h2>Login</h2>
+//           <FormGroup row>
+//             <Label for="Username" sm={3}>
+//               Username
+//             </Label>
+//             <Col sm={5}>
+//               <Input
+//                 onChange={this.updateUsernameLogin}
+//                 value={this.state.usernameLogin}
+//                 type="text"
+//                 placeholder="Enter your username"
+//                 required
+//               />
+//             </Col>
+//           </FormGroup>
+//           <FormGroup row>
+//             <Label for="Password" sm={3}>
+//               Password
+//             </Label>
+//             <Col sm={5}>
+//               <Input
+//                 onChange={this.updateUsernamePassword}
+//                 value={this.state.usernamePassword}
+//                 type="text"
+//                 placeholder="Enter your passoword"
+//                 required
+//               />
+//             </Col>
+//           </FormGroup>
+//           <Button className="loginButton" color="secondary">
+//             Login
+//           </Button>
+//         </Form>
+//         <p>{this.props.loggedErrorMessage}</p>
+//       </Row>
+//     </Container>
+//   </>
