@@ -128,7 +128,7 @@ export class AccountComponent extends React.Component<
   };
 
   render() {
-    return this.props.createUser.username ? (
+    return this.props.createUser.userId ? (
       <Redirect to="/" />
     ) : (
       <>
