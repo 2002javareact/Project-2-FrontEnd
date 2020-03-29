@@ -1,59 +1,78 @@
 import React from "react";
+import { Provider } from "react-redux";
+import { store } from "./Store";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import NavBarComponent from "./components/navbar-components/NavBarComponent";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import NavBarComponent from "./components/navbar-components/NavBarComponent";
 import { HomePageComponent } from "./components/home-page-component/HomePageComponent";
 import { FooterComponent } from "./components/footer-component/FooterComponent";
 import { CheckoutComponent } from "./components/checkout-component/CheckoutComponent";
 import { UserProfileComponent } from "./components/user-profile-component/UserProfileComponent";
 import { EditProfileComponent } from "./components/edit-profile-component/EditProfileComponent";
 import { SearchInventoryByTypeComponent } from "./components/search-inventory-by-type-component/SearchInventoryByTypeComponent";
+import { Users } from "./models/Users";
+import AccountComponent from "./components/account-component/AccountContainer";
 
-function App() {
-  // const [currentUser, setCurrentUser] = useState(
-  //   new User(0, "", "", "", "", new Role(0, ""))
-  // );
 
-  return (
-    <div className="App">
-      {/* remember to switch to browser router */}
-      <Router>
-        <NavBarComponent />
+class App extends React.Component<any, any> {
+  // use State hook
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      currentUser: null
+    };
+  }
 
-        <Switch>
-          {/* edit User profile component */}
-          <Route 
-            path="/edit"
-            render={props => (
-              <EditProfileComponent 
-                history={props.history}
-                match={props.match}
-                location={props.location}
+  updateUser = (user: Users) => {
+    this.setState({
+      currentUser: user
+    });
+  };
+  render() {
+    return (
+      <div className="App">
+        {/* remember to switch to browser router */}
+        <Provider store={store}>
+          <Router>
+            <NavBarComponent />
+
+            <Switch>
+              {/* edit User profile component */}
+              <Route
+                path="/edit"
+                render={props => (
+                  <EditProfileComponent
+                    history={props.history}
+                    match={props.match}
+                    location={props.location}
+                  />
+                )}
               />
-            )}
-          />
-          {/* User profile component */}
-          <Route 
-            path="/profile"
-            render={props => (
-              <UserProfileComponent 
-                history={props.history}
-                match={props.match}
-                location={props.location}
+              {/* User profile component */}
+              <Route
+                path="/profile"
+                render={props => (
+                  <UserProfileComponent
+                    history={props.history}
+                    match={props.match}
+                    location={props.location}
+                  />
+                )}
               />
-            )}
-          />
-          {/* Checkout Component */}
-          <Route
-            path="/checkout"
-            render={props => (
-              <CheckoutComponent
-                history={props.history}
-                match={props.match}
-                location={props.location}
-                // currentUser={currentUser}
+              {/* Checkout Component */}
+              <Route
+                path="/checkout"
+                render={props => (
+                  <CheckoutComponent
+                    history={props.history}
+                    match={props.match}
+                    location={props.location}
+                    // currentUser={currentUser}
+                  />
+                )}
               />
+
             )}
           />
           {/* Test Type Component */}
@@ -81,14 +100,28 @@ function App() {
                 match={props.match}
                 location={props.location}
                 // currentUser={currentUser}
+                
+              {/* Home Page Component */}
+              <Route
+                exact
+                path="/"
+                render={props => (
+                  <HomePageComponent
+                    history={props.history}
+                    match={props.match}
+                    location={props.location}
+                    // currentUser={currentUser}
+                  />
+                )}
               />
-            )}
-          />
-        </Switch>
-        <FooterComponent />
-      </Router>
-    </div>
-  );
+              <Route path="/account" render={() => <AccountComponent />} />
+            </Switch>
+            <FooterComponent />
+          </Router>
+        </Provider>
+      </div>
+    );
+  }
 }
 
 export default App;
