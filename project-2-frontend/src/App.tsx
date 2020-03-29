@@ -8,6 +8,7 @@ import { FooterComponent } from "./components/footer-component/FooterComponent";
 import { CheckoutComponent } from "./components/checkout-component/CheckoutComponent";
 import { UserProfileComponent } from "./components/user-profile-component/UserProfileComponent";
 import { EditProfileComponent } from "./components/edit-profile-component/EditProfileComponent";
+import { SearchInventoryByTypeComponent } from "./components/search-inventory-by-type-component/SearchInventoryByTypeComponent";
 
 function App() {
   // const [currentUser, setCurrentUser] = useState(
@@ -55,6 +56,22 @@ function App() {
               />
             )}
           />
+          {/* Test Type Component */}
+          {/* '<Route
+            path="/type/1"
+            render={props => (
+              <SearchInventoryByTypeComponent
+                history={props.history}
+                match={props.match}
+                location={props.location}
+                typeId={1}
+                inventoryByType={[]}
+                currentInventory={null}
+                // currentUser={currentUser}
+              />
+            )}
+          />' */}
+
           {/* Home Page Component */}
           <Route
             path="/"
