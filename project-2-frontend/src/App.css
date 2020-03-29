@@ -112,7 +112,66 @@ form {
 }
 
 h2 {
+  color: #c0b283;
+  text-align: center;
+  text-shadow: 0 0 3px #ff0000, 0 0 5px black;
+  padding-top: 2rem;
+}
+
+h4 {
+  color: #c0b283;
+  text-align: center;
+  text-shadow: 0 0 3px #ff0000, 0 0 5px black;
+  padding-bottom: 2rem;
+}
+
+h4 span {
   color: white;
+}
+
+input[type="password"]:focus {
+  background-color: #c0b283;
+  border: 2px solid red;
+}
+
+input[type="text"]:focus {
+  background-color: #c0b283;
+  border: 2px solid red;
+}
+
+.signUpButton {
+  color: #800022;
+  padding: 15px 25px;
+  font-size: 20;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  background-color: #c0b283;
+  border: solid black;
+  border-radius: 15px;
+  box-shadow: 0 9px grey;
+}
+
+.signUpButton:hover {
+  background-color: 800022;
+}
+
+.signUpButton:active {
+  background-color: #800022;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.signUpForm {
+  box-shadow: 10px 10px 5px #c0b283;
 }
 
 /* make classes for each page i want to have bColor to black */

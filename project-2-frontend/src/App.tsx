@@ -84,6 +84,7 @@ class App extends React.Component<any, any> {
                 )}
               />
               <Route path="/account" render={() => <AccountComponent />} />
+              {/* <Route path="/login" render={() => <LoginUserComponent} */}
             </Switch>
             <FooterComponent />
           </Router>

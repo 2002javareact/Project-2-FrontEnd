@@ -132,7 +132,11 @@ export class AccountComponent extends React.Component<
       <Redirect to="/" />
     ) : (
       <>
-        <h2>Sign Up</h2>
+        <h2>Welcome to Liq And Win!</h2>
+        <h4>
+          As a result of <span>coronavirus disease (COVID-19)</span>, we will
+          deliver to your choice for free!
+        </h4>
         {/* SIGN UP FORM */}
         <Form className="signUpForm" onSubmit={this.createUser}>
           <Row form>
@@ -219,10 +223,15 @@ export class AccountComponent extends React.Component<
               </FormGroup>
             </Col>
           </Row>
-          <Button className="signUpButton" color="primary">
+        </Form>
+        <div className="flex-container">
+          <Button className="signUpButton" color="danger">
             Submit
           </Button>
-        </Form>
+          <Button className="signUpButton" color="danger">
+            Already A User ?
+          </Button>
+        </div>
         <p>{this.props.createErrorMessage}</p>
 
         <br></br>
