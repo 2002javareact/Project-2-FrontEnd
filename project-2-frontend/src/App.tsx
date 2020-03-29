@@ -14,7 +14,6 @@ import { SearchInventoryByTypeComponent } from "./components/search-inventory-by
 import { Users } from "./models/Users";
 import AccountComponent from "./components/account-component/AccountContainer";
 
-
 class App extends React.Component<any, any> {
   // use State hook
   constructor(props: any) {
@@ -72,11 +71,9 @@ class App extends React.Component<any, any> {
                   />
                 )}
               />
-
-            )}
-          />
-          {/* Test Type Component */}
-          {/* '<Route
+              )} />
+              {/* Test Type Component */}
+              {/* '<Route
             path="/type/1"
             render={props => (
               <SearchInventoryByTypeComponent
@@ -90,20 +87,8 @@ class App extends React.Component<any, any> {
               />
             )}
           />' */}
-
-          {/* Home Page Component */}
-          <Route
-            path="/"
-            render={props => (
-              <HomePageComponent
-                history={props.history}
-                match={props.match}
-                location={props.location}
-                // currentUser={currentUser}
-                
               {/* Home Page Component */}
               <Route
-                exact
                 path="/"
                 render={props => (
                   <HomePageComponent
