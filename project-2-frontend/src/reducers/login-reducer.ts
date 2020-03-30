@@ -1,7 +1,7 @@
 import { ILoginState } from ".";
-import { Users } from "../models/Users";
 import { loginTypes } from "../action-mappers/login-action-mapper";
 import { AnyAction } from "redux";
+import { Users } from "../models/Users";
 
 //initial state
 const initialState: ILoginState = {
@@ -20,7 +20,7 @@ export const loginReducer = (state = initialState, action: AnyAction) => {
       //react will not trigger a render
       return {
         ...state,
-        loggedUser: action.payload.loggedUser
+        loggedUser: action.payload.returningUser
       };
     }
     case loginTypes.INVALID_CREDENTIALS: {

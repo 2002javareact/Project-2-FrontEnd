@@ -12,11 +12,11 @@ export const LoginActionMapper = (username: string, password: string) => async (
   dispatch: Dispatch
 ) => {
   try {
-    let loggedUser = await liqAndWinLogin(username, password);
+    let returningUser = await liqAndWinLogin(username, password);
     dispatch({
       type: loginTypes.SUCESSFUL_LOGIN,
       payload: {
-        loggedUser
+        returningUser
       }
     });
   } catch (e) {

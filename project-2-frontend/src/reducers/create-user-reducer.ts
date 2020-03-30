@@ -14,7 +14,7 @@ export const createUserReducer = (state = initialState, action: AnyAction) => {
     case createUserTypes.CREATE_USER_SUCCESSFUL: {
       return {
         ...state,
-        createUser: action.payload.createUser
+        createUser: action.payload.newUser
       };
     }
     case createUserTypes.INVALID_CREDENTIALS: {

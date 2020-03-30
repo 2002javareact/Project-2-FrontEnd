@@ -12,7 +12,8 @@ import { UserProfileComponent } from "./components/user-profile-component/UserPr
 import { EditProfileComponent } from "./components/edit-profile-component/EditProfileComponent";
 import { SearchInventoryByTypeComponent } from "./components/search-inventory-by-type-component/SearchInventoryByTypeComponent";
 import { Users } from "./models/Users";
-import AccountComponent from "./components/account-component/AccountContainer";
+import SignUpComponent from "./components/signup-component/SignUpContainer";
+import LoginComponent from "./components/login-component/LoginContainer";
 
 class App extends React.Component<any, any> {
   // use State hook
@@ -99,7 +100,11 @@ class App extends React.Component<any, any> {
                   />
                 )}
               />
-              <Route path="/account" render={() => <AccountComponent />} />
+              <Route
+                path="/account"
+                render={props => <SignUpComponent {...props} />}
+              />
+              <Route path="/login" render={() => <LoginComponent />} />
             </Switch>
             <FooterComponent />
           </Router>
