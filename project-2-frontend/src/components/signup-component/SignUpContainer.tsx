@@ -1,6 +1,5 @@
 import { connect } from "react-redux";
 import { IState } from "../../reducers/index";
-import { LoginActionMapper } from "../../action-mappers/login-action-mapper";
 import { CreateUserActionMapper } from "../../action-mappers/create-user-mapper";
 import { SignUpComponent } from "./SignUpComponent";
 

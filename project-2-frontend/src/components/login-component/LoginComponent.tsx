@@ -50,7 +50,7 @@ export class LoginComponent extends React.Component<
   };
 
   render() {
-    return this.props.loggedUser.username ? (
+    return this.props.loggedUser.userId ? (
       <Redirect to="/" />
     ) : (
       <>
